@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advaith Appajodu</title>
+  <meta name="description" content="Advaith Appajodu. Applied Math and CS at UC Berkeley, researcher at Berkeley AI Research. LLM evaluation and efficiency, biological ML, and continual learning.">
+  <meta property="og:title" content="Advaith Appajodu">
+  <meta property="og:description" content="ML research and production agents. UC Berkeley Applied Math and CS. LLM evaluation, biological ML, continual learning.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f4f2ec">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236d9bff'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='%230a0a0f' font-family='sans-serif' font-weight='bold'%3EA%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">Advaith Appajodu</a>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#now">Now</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="hero">
+    <div>
+      <h1>I measure how models reason, and <em>what it costs.</em></h1>
+      <p class="lede">Applied Math and CS at UC Berkeley, researcher at Berkeley AI Research. I work across <strong>LLM evaluation and efficiency, biological ML, and continual learning</strong>, and I build production-grade agents.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:advaith_appajodu@berkeley.edu">Get in touch</a>
+        <a class="btn btn-quiet" href="assets/Advaith_Appajodu_Resume.pdf">Resume</a>
+      </div>
+    </div>
+    <figure class="figure-card" id="tilt">
+      <img src="assets/heatmap.png" alt="Accuracy heatmap across four language models and five instructed reasoning languages on BIG-Bench Extra Hard" width="1343" height="926">
+      <figcaption>Accuracy across 4 open-weight reasoning models and 5 instructed reasoning languages on BIG-Bench Extra Hard, from my current paper.</figcaption>
+    </figure>
+  </div>
+
+  <section id="research">
+    <h2 class="reveal">Research</h2>
+    <p class="section-sub reveal">Sole-author work in preparation for workshop submission, plus ongoing work at Berkeley AI Research. My interests span three threads: reasoning efficiency and evaluation, biological machine learning, and continual learning.</p>
+
+    <div class="paper reveal">
+      <h3>Budgeted Cross-Lingual Reasoning: Token Efficiency, Language Compliance, and Serving-Tier Instability in Open-Weight Reasoning Models</h3>
+      <p class="meta">Preprint in preparation, 2026</p>
+      <p>Reasoning traces, not answers, dominate the cost of deploying reasoning models. This study asks whether instructing a model to think in a different language can buy the same accuracy for fewer tokens. I evaluated 4 open-weight reasoning models across 5 instructed reasoning languages on BIG-Bench Extra Hard, under per-model token budgets, with a staged eligibility gate that screened 8 model families.</p>
+      <ul class="findings">
+        <li data-num="01"><strong>Language compliance collapses on hard tasks.</strong> Directives that achieve near-perfect in-language reasoning on standard benchmarks stop working on hard items. Three of four models revert to English no matter what you ask for.</li>
+        <li data-num="02"><strong>Scoring policy, not capability, decides the ranking.</strong> Whether truncated responses count as failures single-handedly determines which model wins. Both readings are true, and they answer different questions.</li>
+        <li data-num="03"><strong>The serving infrastructure is a confounder.</strong> A provider's discounted batch tier destabilized large mixture-of-experts models at temperature 0. Rerunning every batch-truncated call synchronously completed 62 percent of them, enough to dissolve a model ranking that had looked statistically significant.</li>
+      </ul>
+      <figure class="paper-figure">
+        <img src="assets/pareto.png" alt="Two-panel Pareto plot of accuracy versus tokens per question under two scoring policies" width="2400" height="1050">
+        <figcaption>Accuracy against tokens per question under the budgeted policy (left) and the completed-only sensitivity view (right). The choice of policy reverses model rankings.</figcaption>
+      </figure>
+    </div>
+
+    <div class="tag-row reveal">
+      <span class="tag tag-hot">LLM evaluation</span>
+      <span class="tag tag-hot">Reasoning efficiency</span>
+      <span class="tag tag-hot">Biological ML</span>
+      <span class="tag tag-hot">Continual learning</span>
+      <span class="tag">Multilingual reasoning</span>
+      <span class="tag">Agent systems</span>
+      <span class="tag">Inference infrastructure</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="reveal">Projects</h2>
+    <p class="section-sub reveal">Agents and applications, built end to end.</p>
+
+    <div class="projects-grid">
+      <a class="project project-featured reveal" href="https://github.com/rishabhroyy/traide">
+        <h3>trAId</h3>
+        <p>Text a photo of anything you want to sell. trAId identifies the item, researches comparable eBay listings with a real logged-in browser, prices it, drafts the listing, gets your approval over text, publishes, then negotiates with buyers autonomously. Built in 24 hours at CalHacks 2026.</p>
+        <p>The interesting parts: a durable workflow that pauses for human approval and survives restarts, one persistent authenticated browser context, and negotiation guardrails enforced in code rather than in the prompt.</p>
+        <span class="stack-line">Python · FastMCP · AgentSpan · Browserbase · Redis · Claude</span>
+      </a>
+      <a class="project project-side reveal d1" href="https://github.com/advaith-appajodu/Where">
+        <h3>Where</h3>
+        <p>Answers one question: where should I go right now? Quick inputs in, ranked nearby places out, each with a short rationale, on an interactive map.</p>
+        <span class="stack-line">Next.js · TypeScript · Mapbox GL · Tailwind</span>
+      </a>
+      <a class="project project-mini reveal d2" href="https://github.com/advaith-appajodu/Weather_MCP">
+        <div>
+          <h3>Weather MCP</h3>
+          <p>A Model Context Protocol server exposing live weather as agent tools.</p>
+        </div>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="now" class="now">
+    <h2 class="reveal">Now</h2>
+    <p class="reveal">Reading toward depth in biological ML and continual learning, and looking for research collaborations in either, alongside my evaluation and efficiency work.</p>
+    <p class="reveal d1">Forward deployed engineering intern at MoolAI, hardening agents for production. Previously worked on LLM fine-tuning and data pipelines at Salesforce AI Research. If any of this overlaps with your work, my inbox is open.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span class="copyright">Advaith Appajodu, 2026</span>
+    <div class="footer-links">
+      <a href="mailto:advaith_appajodu@berkeley.edu">advaith_appajodu@berkeley.edu</a>
+      <a href="https://github.com/advaith-appajodu">GitHub</a>
+      <a href="assets/Advaith_Appajodu_Resume.pdf">Resume</a>
+    </div>
+  </div>
+</footer>
+
+<script src="reveal.js"></script>
+</body>
+</html>
