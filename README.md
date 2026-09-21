@@ -28,6 +28,6 @@ Edit the HTML, commit, push. No build step.
 
 ## Content rules
 
-- Paper stays labeled "preprint in preparation" until it is actually submitted or on
-  arXiv, then update the Research section with the real link.
+- The cross-lingual study is presented as a blog post, not a paper. Do not label it a
+  preprint.
 - Every number on the site comes from the actual study. Do not round into fiction.
