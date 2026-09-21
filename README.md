@@ -18,14 +18,11 @@ a few minutes of the first push.
 
 Edit the HTML, commit, push. No build step.
 
-- `index.html`: the whole homepage. Sections: hero, research, projects, writing, now.
+- `index.html`: the whole homepage. Sections: bio, research, projects, writing.
 - `blog/index.html`: the writing page. Instructions for adding a post are in a comment
   inside the file.
-- `style.css`: one stylesheet. Light editorial theme, warm paper + ink + a single
-  forest-green accent. The `:root` CSS variables at the top control the whole palette,
-  change `--accent` / `--paper` / `--ink` there to re-theme in one place.
-- `reveal.js`: progressive-enhancement only (scroll reveals + hero tilt, both disabled
-  under prefers-reduced-motion). The page is fully readable without it.
+- `style.css`: one small stylesheet. Single column, serif, no scripts. The `:root`
+  variables at the top are the whole palette.
 - `assets/`: paper figures, resume PDF. When the resume changes, replace
   `assets/Advaith_Appajodu_Resume.pdf` with the new export.
 
